@@ -1,0 +1,17 @@
+<p>customers works!</p>
+
+
+<table>
+    <thead style="background-color: yellow;">
+        <tr>
+            <td>CustomerID</td>
+            <td>CustomerName</td>
+        </tr>
+    </thead>
+    <tbody style="background-color:aqua;">
+        <tr *ngFor="let customer of referenceCusOrd">
+            <td>{{customer.customerID}}</td>
+            <td>{{customer.customerName}}</td>
+        </tr>
+    </tbody>
+</table>
