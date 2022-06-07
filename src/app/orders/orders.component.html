@@ -3,14 +3,24 @@
 
 
 <!-- 3 objects -->
-<ul>
+<!-- <ul>
    <li *ngFor="let customer of orderref">
          <span>{{customer.customerID}}</span>
          <p>{{customer.customerName}}</p>
          <label>{{customer.orderId}}</label>
          <input type="text" [value]="customer.orderName" />
    </li>
-</ul> 
+</ul>  -->
 
-
-<button (click)="evtClick()">Click</button>
+<div style="background-color:yellow" >
+      <ul class="container" style="list-style:none">
+            <li *ngFor="let customer of orderref" style="padding:25px">
+                  <!-- <input class="form-control" type="text" [value]="customer.customerID"> -->
+                  <input style="margin:10px" class="form-control" type="text" [value]="customer.customerName">
+                  <input style="margin:10px" class="form-control" type="text" [value]="customer.orderId">
+                  <input style="margin:10px" class="form-control" type="text" [value]="customer.orderName" />
+            </li>
+      </ul>
+      <button class="btn btn-primary" (click)="evtClick()">Display</button>
+      <button class="btn btn-secondary" (click)="evtemtClick(orderref)">Emit</button>
+</div>

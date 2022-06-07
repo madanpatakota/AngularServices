@@ -5,8 +5,7 @@ import { logsService } from '../logs.service';
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
-  styleUrls: ['./customers.component.css'],
-  providers:[ customerorderService , logsService]
+  styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent implements OnInit {
 
@@ -17,6 +16,10 @@ export class CustomersComponent implements OnInit {
 
   referenceCusOrd: any = [];
 
+
+  //rule is whenevent you are trying to subscribe in the component we have to subscribe the data in the ngOninit()
+
+
   ngOnInit(): void {
     // i need the call the function which contains the information.
     // for calling the method you have to create the instance of the class
@@ -26,7 +29,13 @@ export class CustomersComponent implements OnInit {
     
     
     this.logservice.getLogs("log service is calling from customer component");
-    //this.referenceCusOrd =  this.cusord.getCustomerOrderDetails();
+    this.referenceCusOrd =  this.cusord.getCustomerOrderDetails("From Customer");
+
+    this.cusord.evtEmitter.subscribe((latestRecord)=>{
+       console.log(latestRecord)
+    })
+
+
   }
 
 

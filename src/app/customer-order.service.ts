@@ -1,5 +1,5 @@
 
-import { Injectable } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import { logsService } from "./logs.service";
 // service is a normal typescript class which contains the logic
 
@@ -14,6 +14,10 @@ export class customerorderService {
     //consturtor
     //methods
  
+
+    evtEmitter = new EventEmitter<any>();
+
+
     //whenever you are doing inject the something into the constructor you have to decarate the class
     constructor(private logservice:logsService){
 
@@ -40,8 +44,11 @@ export class customerorderService {
 
     getCustomerOrderDetails(logs:string) {
         this.logservice.getLogs(logs);
-        return this.customers;
+        //we are going to writhe http service connecting to the java/.net.
+        return this.customers
     }
+
+
 
 
 }
